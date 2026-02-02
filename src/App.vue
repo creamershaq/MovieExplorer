@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { MovieType } from './classes/movie';
 import { api } from './datafetching/getmovies';
+import FirstMovieComponent from './components/fistmoviecomponent.vue';
 
 </script>
 
@@ -19,6 +20,7 @@ console.log(data);
   <p>Json</p>
   <p>{{ data.Awards }}</p>
   <pre>{{ data.Poster }}</pre>
+  <FirstMovieComponent :movie="data" />
 </template>
 
 <style scoped></style>
