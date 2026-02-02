@@ -2,7 +2,9 @@
 import type { MovieType } from './classes/movie';
 import { api } from './datafetching/getmovies';
 import FirstMovieComponent from './components/fistmoviecomponent.vue';
+import { initLazyLoad } from './lazyextensions/imagelazyloading';
 
+initLazyLoad();
 </script>
 
 <script lang="ts">

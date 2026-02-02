@@ -7,6 +7,7 @@
       <p><strong>Genre:</strong> {{ movie.Genre }}</p>
       <p><strong>Rating:</strong> {{ movie.imdbRating }}/10</p>
       <p><strong>Description:</strong> {{ movie.Plot }}</p>
+      <img class="lazy" :data-src="movie.Poster" />
     </div>
     <div v-else class="no-movie">
       <p>No movie data available</p>
