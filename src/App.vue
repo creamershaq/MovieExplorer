@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import type { MovieType } from './classes/movie';
-import { api } from './datafetching/getmovies';
+import type { Movie } from './classes/movie';
+import { api, MovieDataProvider } from './helpers/MovieDataProvider';
 import FirstMovieComponent from './components/fistmoviecomponent.vue';
-import { initLazyLoad } from './lazyextensions/imagelazyloading';
+import { initLazyLoad } from './helpers/imagelazyloading';
+import { Plot } from './enums/Plot';
+import { MovieType } from './enums/MovieType';
 
-initLazyLoad();
 </script>
 
 <script lang="ts">
 const url: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=2f180c84';
-const data: MovieType = await api<MovieType>(url);
+const data: Movie = await api<Movie>(url);
+let data2: Movie[] = [];
+try {
+  data2 = await MovieDataProvider.GetMovies('black', MovieType.Movie, null, 1, Plot.Full);
+} catch (error) {
+  console.error('Error fetching movies by year:', error);
+}
 console.log(data);
+
+initLazyLoad();
 </script>
 
 <template>
@@ -21,8 +30,11 @@ console.log(data);
   </p>
   <p>Json</p>
   <p>{{ data.Awards }}</p>
-  <pre>{{ data.Poster }}</pre>
+  <pre>{{ data2 }}</pre>
   <FirstMovieComponent :movie="data" />
+  <div v-for="item of data2" :key="item.imdbID">
+    <FirstMovieComponent :movie="item" />
+  </div>
 </template>
 
 <style scoped></style>

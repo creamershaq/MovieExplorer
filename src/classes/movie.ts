@@ -1,5 +1,5 @@
 // Reading
-export interface Movie {
+export interface IMovie {
   Title: string
   Year?: string
   Rated?: string
@@ -27,4 +27,4 @@ export interface Movie {
   Response?: string
 }
 
-export type MovieType = Movie
+export type Movie = IMovie

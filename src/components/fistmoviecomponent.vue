@@ -17,13 +17,13 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import type { MovieType } from '../classes/movie';
+import type { Movie } from '../classes/movie';
 
 export default defineComponent({
   name: 'FirstMovieComponent',
   props: {
     movie: {
-      type: Object as PropType<MovieType>,
+      type: Object as PropType<Movie>,
       required: false,
       default: null
     }
