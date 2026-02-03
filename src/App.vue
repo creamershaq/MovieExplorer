@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Movie } from './classes/movie';
+import type { Movie, ShortMovie } from './classes/movie';
 import { api, MovieDataProvider } from './helpers/MovieDataProvider';
 import FirstMovieComponent from './components/fistmoviecomponent.vue';
 import { initLazyLoad } from './helpers/imagelazyloading';
@@ -11,7 +11,7 @@ import { MovieType } from './enums/MovieType';
 <script lang="ts">
 const url: string = 'https://www.omdbapi.com/?i=tt3896198&apikey=2f180c84';
 const data: Movie = await api<Movie>(url);
-let data2: Movie[] = [];
+let data2: ShortMovie[] = [];
 try {
   data2 = await MovieDataProvider.GetMovies('black', MovieType.Movie, null, 1, Plot.Full);
 } catch (error) {

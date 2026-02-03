@@ -1,8 +1,19 @@
 // Reading
-export interface IMovie {
+export interface IShortMovie {
+  Title: string
+  Year?: string
+  imdbID?: string
+  Type?: string
+  Poster?: string // URL to poster image
+}
+
+export interface IMovie extends IShortMovie {
   Title: string
   Year?: string
   Rated?: string
+  imdbID?: string
+  Type?: string
+  Poster?: string // URL to poster image
   Released?: string
   Runtime?: string
   Genre?: string
@@ -13,13 +24,10 @@ export interface IMovie {
   Language?: string
   Country?: string
   Awards?: string
-  Poster?: string // URL to poster image
   Ratings?: { Source: string; Value: string }[]
   Metascore?: string
   imdbRating?: string
   imdbVotes?: string
-  imdbID?: string
-  Type?: string
   DVD?: string
   BoxOffice?: string
   Production?: string
@@ -28,3 +36,5 @@ export interface IMovie {
 }
 
 export type Movie = IMovie
+
+export type ShortMovie = IShortMovie

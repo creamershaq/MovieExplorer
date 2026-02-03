@@ -1,6 +1,6 @@
 import { Plot } from '@/enums/Plot'
 import { MovieType } from '@/enums/MovieType'
-import type { Movie } from '@/classes/movie'
+import type { Movie, ShortMovie } from '@/classes/movie'
 
 export class MovieDataProvider {
   constructor() {}
@@ -26,7 +26,7 @@ export class MovieDataProvider {
     year: number | null = null,
     page: number = 1,
     plot: Plot = Plot.Full,
-  ): Promise<Movie[]> {
+  ): Promise<ShortMovie[]> {
     const url = `${this.apiUrl}&s=${title}${type ? `&type=${type}` : ''}${year ? `&y=${year}` : ''}${page ? `&page=${page}` : ''}&plot=${plot}`
     const response = await fetch(`${url}`)
     if (!response.ok) {
@@ -36,7 +36,7 @@ export class MovieDataProvider {
     if (json.Response === 'False') {
       throw Error(json.Error)
     }
-    const movies: Movie[] = json.Search as Movie[]
+    const movies: ShortMovie[] = json.Search as ShortMovie[]
     // assuming they return json
     return movies
   }

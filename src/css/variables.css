@@ -1,0 +1,22 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --text-color-theme: #494946;
+  --text-color-hover: #1a1b25;
+  --card-bg: #f9f9f9;
+  --footer-bg: #eee;
+  --font-size: 10px;
+  --button-bg: #2959b3;
+  --header-font-size: 28px;
+  --nav-font-size: 19px;
+}
+/* Dark Theme */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --text-color-theme: #ffffff;
+  --text-color-hover: #61626d;
+  --card-bg: #1e1e1e;
+  --footer-bg: #1e1e1e;
+  --button-bg: #3e495f;
+}
